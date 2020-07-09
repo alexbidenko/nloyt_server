@@ -1,0 +1,92 @@
+.sideBar {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: .8rem 0px 2rem rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    &__inner {
+        @extend .col;
+        width: $widthSideBarShow;
+        height: 100%;
+    }
+    &__logo {
+        width: 100%;
+        height: $heightTopBar;
+        border-bottom: 1px solid #EBEFF2;
+        position: relative;
+        &Content {
+            padding: 2rem 2rem 1.4rem 2rem;
+            font-size: 2.2rem;
+            font-family: 'Black';
+            color: $colorGreen;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            width: 100%;
+            transition: $transitionSideBar;
+            will-change: transform;
+            &._min {
+                transform: translate(25rem, -50%);
+            }
+        }
+    }
+    .body__sideBar._active &__logo {
+        &Content {
+            transform: translate(-25rem, -50%);
+            &._min {
+                transform: translate(0, -50%);
+                text-align: center;
+                width: 6rem;
+            }
+        }
+    }
+    &__list {
+        width: 100%;
+        padding: 3.7rem 2rem 3.7rem 2rem;
+        @extend .col;
+        &._toggle {
+            margin-top: auto;
+        }
+        &Item {
+            font-size: 1.2rem;
+            font-family: 'Light';
+            padding: 0 0 0 4rem;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            user-select: none;
+        }
+        &Item+&Item {
+            margin: 4.1rem 0 0 0;
+        }
+        &Icon {
+            position: absolute;
+            top: -.5rem;
+            left: 0;
+            width: 2.3rem;
+            height: 2.3rem;
+            object-fit: contain;
+            z-index: 2;
+            filter: grayscale(1);
+        }
+        &Item._current &Icon {
+            filter: grayscale(0);
+        }
+        &._toggle &Icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            top: 50%;
+            transform: translate(0, -50%);
+            transition: $transitionSideBar;
+            will-change: transform;
+        }
+    }
+    &__list:not(._toggle)+&__list:not(._toggle) {
+        border-top: 1px solid #EBEFF2;
+    }
+    .body__sideBar._active &__list._toggle &__listIcon {
+        transform: translate(.3rem, -50%);
+    }
+}

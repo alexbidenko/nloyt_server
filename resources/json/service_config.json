@@ -1,0 +1,42 @@
+[
+    {
+        "type": "RS",
+        "min": 0,
+        "max": 1
+    },
+    {
+        "type": "WE",
+        "min": 0,
+        "max": 1
+    },
+    {
+        "type": "EE",
+        "min": 0,
+        "max": 1
+    },
+    {
+        "type": "CL",
+        "min": 0,
+        "max": 110
+    },
+    {
+        "type": "BV",
+        "min": 25,
+        "max": 100
+    },
+    {
+        "type": "OL",
+        "min": 0,
+        "max": 0
+    },
+    {
+        "type": "TP",
+        "min": 0,
+        "max": 0
+    },
+    {
+        "type": "FL",
+        "min": 0,
+        "max": 0
+    }
+]

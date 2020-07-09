@@ -1,0 +1,95 @@
+.customerInfo {
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgb(241, 240, 240);
+    border-radius: .75rem;
+    &__head {
+        width: 100%;
+        padding: 1.5rem 3rem;
+        border-bottom: 1px dashed rgb(223, 221, 221);
+        @extend .row;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            right: 3rem;
+            width: 2rem;
+            height: 2rem;
+            @include bg('/assets/img/order-arrow-icon.svg', contain, center);
+        }
+    }
+    &._active &__head {
+        border-color: transparent;
+        &::before {
+            transform: translate(0, -50%) rotate(180deg);
+        }
+    }
+    &__title {
+        width: calc(100% - 5rem);
+        font-size: 1.3rem;
+        font-family: 'Black';
+        &Item {
+            &._green {
+                color: $colorGreen;
+            }
+            &._blue {
+                color: $colorBlue;
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+        padding: 0 3rem;
+    }
+    &._active &__content {
+        display: none;
+    }
+    &__layer {
+        width: 100%;
+        padding: 1rem 0;
+        @extend .row;
+        align-items: stretch;
+        &._main {
+            background: #e6e6e6;
+            width: calc(100% + 6rem);
+            margin: 0 0 0 -3rem;
+            padding: 1rem 3rem;
+        }
+    }
+    &__layer:not(._main)+&__layer:not(._main) {
+        border-top: 1px solid rgb(238, 238, 238);
+    }
+    &__layer._main+&__layer {
+        border-top: 1px dashed rgb(223, 221, 221);
+        width: calc(100% + 6rem);
+        margin: 0 0 0 -3rem;
+        padding: 1rem 3rem;
+    }
+    &__item {
+        width: 50%;
+        font-size: 1.3rem;
+        line-height: 1.3;
+        &._description {
+            font-family: 'Regular';
+            padding: 0 2rem 0 0;
+        }
+        &._content {
+            font-family: 'Bold';
+            text-align: right;
+            padding: 0 0 0 2rem;
+        }
+    }
+    &__layer._adress &__item {
+        &._description {
+            width: 25%;
+        }
+        &._content {
+            width: 75%;
+        }
+    }
+}

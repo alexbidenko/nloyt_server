@@ -1,0 +1,108 @@
+.topBar {
+    width: 100%;
+    height: 100%;
+    padding: 1rem $paddingContentRight 1rem $paddingContentLeft;
+    background: #fff;
+    border-bottom: 1px solid #EBEFF2;
+    @extend .row;
+    justify-content: flex-end;
+    &__inner {
+        width: calc(100% - #{$widthSideBarShow});
+        height: 100%;
+        @extend .row;
+        align-items: center;
+        transition: $transitionSideBar;
+        will-change: transform;
+        & * {
+            will-change: transform;
+        }
+    }
+    &__namePage {
+        font-size: 2.35rem;
+        font-family: 'Light';
+        color: $colorDark;
+        &Item {
+            font-family: 'Regular';
+            color: #aaaaaa;
+            font-size: 2.1rem;
+        }
+        &Item+&Item {
+            margin-left: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid #f2f2f2;
+        }
+    }
+    .body__topBar._active &__inner {
+        width: calc(100% - #{$widthSideBarHide});
+    }
+    &__info {
+        @extend .row;
+        margin-left: auto;
+        &Lang {
+          width: 3rem;
+          height: 3rem;
+          @extend .col;
+          justify-content: center;
+          align-items: center;
+          margin: 0 2.5rem 0 0;
+          &Icon {
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+          }
+        }
+        &Notify {
+            width: 3rem;
+            height: 3rem;
+            @extend .col;
+            justify-content: center;
+            align-items: center;
+            margin: 0 2.5rem 0 0;
+            &Icon {
+                width: 2rem;
+                height: 2rem;
+                cursor: pointer;
+            }
+        }
+        &Preview {
+            width: 3.2rem;
+            height: 3.2rem;
+            position: relative;
+            cursor: pointer;
+            &Inner {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            &Image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background: no-repeat center / cover #aaa;
+                line-height: 3.2rem;
+                font-size: 1.28rem;
+                letter-spacing: 0.01em;
+                text-align: center;
+                color: #FFFFFF;
+            }
+        }
+        &Drop {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin: 1rem 0 0 0;
+            z-index: 2;
+            width: 28rem;
+            will-change: opacity;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s ease-in-out;
+            &._active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

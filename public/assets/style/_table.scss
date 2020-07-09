@@ -1,0 +1,278 @@
+.table {
+    max-width: 100%;
+    height: 100%;
+    position: relative;
+    background: #fff;
+    border: 1px solid rgb(241, 240, 240);
+    border-radius: .5rem;
+    // overflow: hidden;
+    overflow-x: auto;
+    overflow-y: visible;
+    @extend .SCROLL;
+    will-change: content, background;
+    &._order {
+        overflow: visible;
+    }
+    & * {
+        will-change: content, background;
+    }
+    &__inner {
+        // width: 100%;
+        height: 100%;
+        @extend .col;
+    }
+    &__row {
+        min-width: 100%;
+        @extend .row;
+        align-items: stretch;
+        background-color: white;
+        &._head {}
+        &._active {
+            background: $colorGreenLight;
+            // pointer-events: none;
+        }
+        &:not(._head) {
+            transition: .3s ease-in-out;
+            will-change: shadow;
+            cursor: pointer;
+        }
+        &:not(._head):hover {
+            box-shadow: 0px .2rem .8rem rgba(0, 0, 0, 0.1);
+        }
+    }
+    &__row+&__row {
+        border-top: 1px solid rgb(241, 240, 240);
+    }
+    &__row+&__row._result {
+        border-top: 3px solid #aaa;
+    }
+    &__row._active &__col {
+        position: relative;
+        z-index: 2;
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     z-index: -1;
+        //     background: $colorGreenLight;
+        // }
+    }
+    &__col {
+        padding: .3rem 1rem;
+        min-height: 4rem;
+        @extend .col;
+        justify-content: center;
+        // background: #fff;
+        &._checkbox {
+            width: 3rem;
+        }
+        &._make {
+            width: 11rem;
+        }
+        &._model {
+            width: 10rem;
+        }
+        &._type {
+            width: 9rem;
+        }
+        &._modification {
+            width: 12.5rem;
+        }
+        &._year {
+            width: 4rem;
+        }
+        &._miliage {
+            width: 7.5rem;
+        }
+        &._warranty {
+            width: 9rem;
+            text-align: center;
+            align-items: center;
+        }
+        &._total {
+            width: 7rem;
+            text-align: right;
+            align-items: flex-end;
+        }
+        &._types {
+            width: 4.8rem;
+            align-items: center;
+        }
+        &._services {
+            width: 6rem;
+            text-align: center;
+            align-items: center;
+        }
+        &._data {
+            width: 10rem;
+            text-align: center;
+            align-items: center;
+        }
+        &._status {
+            width: 18rem;
+        }
+        &._files {
+            width: 10rem;
+        }
+        &._description {
+            width: 62rem;
+        }
+        &._approve {
+            width: 13rem;
+            text-align: center;
+            align-items: center;
+        }
+        &._discount {
+            width: 8rem;
+            align-items: flex-end;
+        }
+        &._conclusion {
+            width: 72rem;
+        }
+        &._info {
+            width: 29rem;
+            align-items: flex-end;
+        }
+        &._active {
+            background: rgba(196, 196, 196, 0.1);
+        }
+    }
+    &__row._start &__col {
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    &._order &__col {
+        &._types {
+            width: 6rem;
+            align-items: flex-end;
+        }
+    }
+    &._head &__col {
+        height: 3rem;
+    }
+    &__content {
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+    &__row._result &__col &__content {
+        font-family: 'Bold';
+        font-size: 1.4rem;
+    }
+    &__row._unread &__col &__content {
+        font-family: 'Bold';
+    }
+    &__row._head &__content {
+        font-family: 'Bold';
+        color: #c3c3c3;
+    }
+    &__row:not(._head) &__content {
+        font-family: 'Regular';
+        color: $colorDark;
+    }
+    &__row:not(._head) &__col._model &__content {
+        font-family: 'Bold';
+        color: $colorBlue;
+        font-size: 1.3rem;
+    }
+    &__row:not(._head) &__col._total &__content {
+        font-family: 'Bold';
+        color: $colorBlue;
+        font-size: 1.3rem;
+    }
+    &__col._file &__content {
+        color: $colorBlue;
+    }
+    &__checkbox {
+        &Input {
+            display: none;
+        }
+        &View {
+            cursor: pointer;
+            border-radius: .3rem;
+            border: 1px solid #d5d5d5;
+            width: 1.5rem;
+            height: 1.5rem;
+            @extend .col;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            font-family: 'Medium';
+            font-size: .8rem;
+            transition: .3s ease-in-out;
+            will-change: background, content;
+        }
+        &Icon {
+            width: .7rem;
+            height: .7rem;
+            opacity: 0;
+            will-change: opacity, content;
+            transition: .3s ease-in-out;
+        }
+        &._all &View {
+            color: #fff;
+        }
+        &._all &Input:checked~&View {
+            background: #d5d5d5;
+        }
+        &:not(._all) &Input:checked~&View {
+            background: $colorGreen;
+            border-color: $colorGreen;
+        }
+        &:not(._all) &Input:checked~&View &Icon {
+            opacity: 1;
+        }
+    }
+    &__icon {
+        height: 1.7rem;
+        object-fit: contain;
+        will-change: content;
+    }
+    &__time {
+        padding: 1rem 1rem 1rem 1rem;
+        border-radius: .5rem;
+        background: #6BA30F;
+        font-size: 1.4rem;
+        color: #fff;
+        font-family: 'Black';
+        position: relative;
+        @keyframes planet {
+            0% {
+                transform: translate(0, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(0, -50%) rotate(360deg);
+            }
+        }
+        &._planet {
+          padding-left: 3.5rem;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 1.1rem;
+            transform: translate(0, -50%);
+            width: 1.5rem;
+            height: 1.5rem;
+            @include bg('/assets/img/planet-icon.svg', contain, center);
+            will-change: transform;
+          }
+        }
+        &._active::before {
+            animation: planet 2s infinite linear;
+        }
+    }
+    &__area {
+        width: 100%;
+        padding: .5rem;
+        border-radius: .4rem;
+        border: 1px solid #EBEFF2;
+        font-size: 1.3rem;
+        line-height: 1.4;
+        font-family: 'Light';
+        resize: none;
+        @extend .SCROLL;
+    }
+}

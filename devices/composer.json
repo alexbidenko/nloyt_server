@@ -1,0 +1,13 @@
+{
+    "name": "root/devices",
+    "require": {
+        "php-amqplib/php-amqplib": "^2.10",
+        "textalk/websocket": "1.0.*"
+    },
+    "authors": [
+        {
+            "name": "John Smith",
+            "email": "john@example.com"
+        }
+    ]
+}

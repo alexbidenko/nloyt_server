@@ -1,0 +1,22 @@
+$colorGreen: #6BA30F;
+$colorGreenLight: rgba(107, 163, 15, 0.2);
+$colorDark: #333333;
+$colorBlue: #0054B9;
+$widthSideBarShow: 23.5rem;
+$widthSideBarHide: 6rem;
+$transitionSideBar: .4s ease-in-out;
+$heightTopBar: 5.7rem;
+$paddingContentLeft: 3.3rem;
+$paddingContentRight: 2.5rem;
+.SCROLL {
+    &::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #e3e3e3;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $colorBlue;
+    }
+}

@@ -1,0 +1,44 @@
+.button {
+    width: 100%;
+    min-width: 11rem;
+    padding: .8rem 2rem;
+    border-radius: .4rem;
+    text-align: center;
+    cursor: pointer;
+    @extend .row;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-family: 'Regular';
+    font-size: 1.2rem;
+    border: 1px solid transparent;
+    &._normal {
+        background: $colorGreen;
+        color: #fff;
+    }
+    &:disabled {
+        background: none;
+        color: #aaa;
+        border-color: #e7e6e6;
+    }
+    &._dark {
+        background: none;
+        color: #000;
+        border-color: #000;
+    }
+    &._reject {
+        background: none;
+        color: #D93939;
+        border-color: #D93939;
+    }
+    &._start {
+        background: #0054B9;
+        border-color: #0054B9;
+        color: white;
+    }
+    &._stop {
+        background: none;
+        border-color: #0054B9;
+        color: #0054B9;
+    }
+}

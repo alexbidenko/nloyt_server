@@ -1,0 +1,79 @@
+.body {
+    @extend .reset;
+    width: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: none;
+    overflow-y: scroll;
+    @extend .SCROLL;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 3px;
+    }
+    &__sideBar {
+        @extend .reset;
+        & * {
+            @extend .reset;
+        }
+        position: fixed;
+        width: $widthSideBarShow;
+        height: 100%;
+        z-index: 10;
+        transition: $transitionSideBar;
+        will-change: width;
+        &._active {
+            width: $widthSideBarHide;
+        }
+    }
+    &__topBar {
+        @extend .reset;
+        & * {
+            @extend .reset;
+        }
+        width: 100%;
+        height: $heightTopBar;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 9;
+    }
+    &__content {
+        @extend .reset;
+        & * {
+            @extend .reset;
+        }
+        width: 100%;
+        padding: $heightTopBar 0 0 0;
+    }
+    &__elemChoiceTableRow {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        &._active {
+            opacity: 1;
+            visibility: visible;
+        }
+        &[data-dir=left] {
+            left: 0;
+        }
+        &[data-dir=right] {
+            right: 0;
+        }
+        &[data-dir=left],
+        &[data-dir=right] {
+            height: 100%;
+        }
+        &[data-dir=top] {
+            top: 0;
+        }
+        &[data-dir=bottom] {
+            bottom: 0;
+        }
+        &[data-dir=top],
+        &[data-dir=bottom] {
+            width: 100%;
+            left: 0;
+        }
+    }
+}
